@@ -1,5 +1,6 @@
 package com.oresomecraft.AchieveOresome;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
  * Main plugin class for AchieveOresome
  */
 public class AchieveOresome extends JavaPlugin {
-    private static Logger log = Logger.getLogger("Minecraft");
+    private static Logger log = Bukkit.getLogger();
 
     /**
      * Gets the logger
