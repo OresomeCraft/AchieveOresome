@@ -8,13 +8,14 @@ import java.util.HashMap;
  */
 public abstract class Achievement {
     private static HashMap<String, Achievement> achieves = new HashMap<String, Achievement>();
+    private String completionText;
 
     /**
      * Register a new achievement type in the Achievement Registry
      * @param identifier The identifier used to reference the registered achievement type
      * @param achieve The achievement type to be returned.
      */
-    public void registerAchievement(String identifier, Achievement achieve) {
+    public static void registerAchievement(String identifier, Achievement achieve) {
         achieves.put(identifier, achieve);
     }
 
@@ -24,12 +25,28 @@ public abstract class Achievement {
      * @param args The args used to initiate the Achievement
      * @return The achievement object.
      */
-    public Achievement createAchievement(String identifier, Object[] args) {
+    public static Achievement createAchievement(String identifier, Object[] args) {
         try {
             return (Achievement) achieves.get(identifier).getClass().getConstructors()[0].newInstance(args);
         } catch (Exception e) {
             AchieveOresome.getLog().warning("Achievement Creation Exception: " + e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * Sets the completion text for this instance.
+     * @param text New completion text.
+     */
+    public void setCompletionText(String text) {
+        this.completionText = text;
+    }
+
+    /**
+     * Gets the completion text for this instance.
+     * @return The completion text.
+     */
+    public String getCompletionText() {
+        return this.completionText;
     }
 }
