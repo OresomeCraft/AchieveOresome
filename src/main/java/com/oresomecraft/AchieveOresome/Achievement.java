@@ -7,16 +7,18 @@ import java.util.HashMap;
  * This class is the base class for all achievements. All achievements must inherit from this class.
  */
 public abstract class Achievement {
-    private static HashMap<String, Achievement> achieves = new HashMap<String, Achievement>();
+    private static HashMap<String, Class> achieves = new HashMap<String, Class>();
     private String completionText;
 
     /**
      * Register a new achievement type in the Achievement Registry
      * @param identifier The identifier used to reference the registered achievement type
-     * @param achieve The achievement type to be returned.
+     * @param clazz The achievement type to be returned.
      */
-    public static void registerAchievement(String identifier, Achievement achieve) {
-        achieves.put(identifier, achieve);
+    public static void registerAchievement(String identifier, Class clazz) {
+        if (clazz.equals(Achievement.class)) {
+            achieves.put(identifier, clazz);
+        }
     }
 
     /**
@@ -27,7 +29,7 @@ public abstract class Achievement {
      */
     public static Achievement createAchievement(String identifier, Object[] args) {
         try {
-            return (Achievement) achieves.get(identifier).getClass().getConstructors()[0].newInstance(args);
+            return (Achievement) achieves.get(identifier).getConstructors()[0].newInstance(args);
         } catch (Exception e) {
             AchieveOresome.getLog().warning("Achievement Creation Exception: " + e.getMessage());
             return null;

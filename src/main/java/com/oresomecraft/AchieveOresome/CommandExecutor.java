@@ -3,7 +3,8 @@ package com.oresomecraft.AchieveOresome;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by user on 1/01/2015.
+ * Created by azdaspaz818 on 1/01/2015.
+ * This class takes a command and executes it.
  */
 public class CommandExecutor {
     /**
