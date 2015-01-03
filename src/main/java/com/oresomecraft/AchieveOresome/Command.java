@@ -16,7 +16,7 @@ public abstract class Command {
 
     /**
      * Creates a command object instance
-     * @param cmd The name of the command
+     * @param cmdLabel The name of the command
      * @return The command type specified by the name provided.
      */
     public static Command createCommand(String cmdLabel, Object[] args) {
