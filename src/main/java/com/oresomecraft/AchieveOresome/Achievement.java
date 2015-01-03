@@ -1,5 +1,9 @@
 package com.oresomecraft.AchieveOresome;
 
+import org.bukkit.inventory.ItemStack;
+
+import javax.swing.plaf.synth.Region;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -9,6 +13,31 @@ import java.util.HashMap;
 public abstract class Achievement {
     private static HashMap<String, Class> achieves = new HashMap<String, Class>();
     private String completionText;
+    private int rewardAmount;
+    private ArrayList<ItemStack> commonRewards = new ArrayList<ItemStack>();
+    private ArrayList<ItemStack> rareRewards = new ArrayList<ItemStack>();
+
+    //region Common Reward Code
+    public ArrayList<ItemStack> getCommonDrops() {
+        return this.commonRewards;
+    }
+
+    public void addCommonReward(ItemStack reward) {
+        this.commonRewards.add(reward);
+    }
+
+    public void removeCommonReward(ItemStack reward) {
+        this.commonRewards.remove(reward);
+    }
+    //endregion
+
+    public int getRewardAmount() {
+        return this.rewardAmount;
+    }
+
+    public void setRewardAmount(int amount) {
+        this.rewardAmount = amount;
+    }
 
     /**
      * Register a new achievement type in the Achievement Registry
