@@ -16,6 +16,7 @@ public class AchieveOresome extends JavaPlugin {
 
     /**
      * Gets the logger
+     *
      * @return The logger to log information from.
      */
     public static Logger getLog() {
