@@ -18,6 +18,8 @@ public abstract class Achievement {
     public static void registerAchievement(String identifier, Class clazz) {
         if (clazz.equals(Achievement.class)) {
             achieves.put(identifier, clazz);
+        } else {
+            AchieveOresome.getLog().warning("Error registering achievement '\" + identifier + \".' Not a valid achievement value.");
         }
     }
 

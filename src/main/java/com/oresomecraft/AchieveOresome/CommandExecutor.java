@@ -20,7 +20,12 @@ public class CommandExecutor {
         if (command == null) {
             return false;
         } else {
+            command.execute(args);
             return true;
         }
+    }
+
+    public boolean execute(String cmd, CommandSender sender, String label) {
+        return execute(cmd, sender, label, new String[] {});
     }
 }
