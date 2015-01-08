@@ -5,6 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import javax.swing.plaf.synth.Region;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * Created by azdaspaz818 on 31/12/2014.
@@ -81,5 +82,11 @@ public abstract class Achievement {
      */
     public String getCompletionText() {
         return this.completionText;
+    }
+
+    public abstract boolean isCompleted(UUID playerID);
+
+    public void awardTo(UUID playerID) {
+
     }
 }
