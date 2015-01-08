@@ -32,6 +32,20 @@ public abstract class Achievement {
     }
     //endregion
 
+    //region Rare Reward Code
+    public ArrayList<ItemStack> getRareRewards() {
+        return this.rareRewards;
+    }
+
+    public void addRareReward(ItemStack reward) {
+        this.commonRewards.add(reward);
+    }
+
+    public void removeRareReward(ItemStack reward) {
+        this.commonRewards.remove(reward);
+    }
+    //endregion
+
     public int getRewardAmount() {
         return this.rewardAmount;
     }
@@ -84,8 +98,10 @@ public abstract class Achievement {
         return this.completionText;
     }
 
+    //Completion Check
     public abstract boolean isCompleted(UUID playerID);
 
+    //Complete the achievement - sets this achievement to completed for the specified player; gives reward.
     public void awardTo(UUID playerID) {
 
     }

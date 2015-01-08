@@ -32,7 +32,7 @@ public abstract class Command {
      *
      */
     public static void registerCommand(String cmdLabel, Class clazz) {
-        if(clazz.equals(Achievement.class)) {
+        if(clazz.equals(Command.class)) {
             commandRegistry.put(cmdLabel, clazz);
         } else {
             AchieveOresome.getLog().warning("Error registering command '\" + identifier + \".' Not a valid command value.");
