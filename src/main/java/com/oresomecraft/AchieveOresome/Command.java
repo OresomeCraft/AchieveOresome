@@ -1,5 +1,7 @@
 package com.oresomecraft.AchieveOresome;
 
+import org.bukkit.command.CommandSender;
+
 import java.util.HashMap;
 
 /**
@@ -12,7 +14,7 @@ public abstract class Command {
     /**
      * Executes the command
      */
-    public abstract void execute(String[] args);
+    public abstract void execute(CommandSender sender, String[] args);
 
     /**
      * Creates a command object instance
