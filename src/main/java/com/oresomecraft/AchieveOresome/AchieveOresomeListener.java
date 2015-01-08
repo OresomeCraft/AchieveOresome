@@ -8,11 +8,12 @@ import org.bukkit.event.Listener;
  * Listener for Minecraft events.
  */
 public class AchieveOresomeListener implements Listener {
-    private AchieveOresome plugin;
+    AchieveOresome plugin;
 
 
     /**
      * Base constructor for creating an AchieveOresome listener
+     *
      * @param plugin The AchieveOresome plugin to listen to.
      */
     public AchieveOresomeListener(AchieveOresome plugin) {
