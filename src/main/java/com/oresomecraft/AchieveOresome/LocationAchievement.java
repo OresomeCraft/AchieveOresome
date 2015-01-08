@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 /**
- * Created by user on 3/01/2015.
+ * Created by azdaspaz818 on 3/01/2015.
  */
 public class LocationAchievement extends Achievement {
     private Location loc;
@@ -16,9 +16,6 @@ public class LocationAchievement extends Achievement {
     @Override
     public boolean isCompleted(UUID playerID) {
         Player p = Bukkit.getPlayer(playerID);
-        if (this.loc.distance(p.getLocation()) < this.radius) {
-            return true;
-        }
-        return false;
+        return this.loc.distance(p.getLocation()) <= this.radius;
     }
 }

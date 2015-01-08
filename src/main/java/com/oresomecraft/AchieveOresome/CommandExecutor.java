@@ -19,7 +19,7 @@ public class CommandExecutor {
     public boolean execute(String cmd, CommandSender sender, String label, String[] args) {
         Command command = Command.createCommand(cmd, args);
         if (command != null) {
-            command.execute(args);
+            command.execute(sender, args);
             return true;
         } else {
             return false;

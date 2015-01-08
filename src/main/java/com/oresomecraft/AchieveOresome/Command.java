@@ -35,11 +35,7 @@ public abstract class Command {
      *
      */
     public static void registerCommand(String cmdLabel, Class clazz) {
-<<<<<<< HEAD
         if(clazz.equals(Command.class)) {
-=======
-        if (clazz.equals(Achievement.class)) {
->>>>>>> origin/master
             commandRegistry.put(cmdLabel, clazz);
         } else {
             AchieveOresome.getLog().warning("Error registering command \'" + cmdLabel + "\'. Not a valid command value.");
