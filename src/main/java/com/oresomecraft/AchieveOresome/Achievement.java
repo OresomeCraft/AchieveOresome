@@ -14,6 +14,8 @@ import java.util.UUID;
 public abstract class Achievement {
     private static HashMap<String, Class> achievements = new HashMap<String, Class>();
     private String completionText;
+    private String name;
+    private String description;
     private int rewardAmount;
     private ArrayList<ItemStack> commonRewards = new ArrayList<ItemStack>();
     private ArrayList<ItemStack> rareRewards = new ArrayList<ItemStack>();
@@ -46,6 +48,7 @@ public abstract class Achievement {
     }
     //endregion
 
+    //region Reward Amount
     public int getRewardAmount() {
         return this.rewardAmount;
     }
@@ -53,6 +56,25 @@ public abstract class Achievement {
     public void setRewardAmount(int amount) {
         this.rewardAmount = amount;
     }
+    //endregion
+
+    //region General Information
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+    //endregion
 
     /**
      * Register a new achievement type in the Achievement Registry
