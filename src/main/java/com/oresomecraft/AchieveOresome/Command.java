@@ -14,7 +14,7 @@ public abstract class Command {
     /**
      * Executes the command
      */
-    public abstract void execute(CommandSender sender, String[] args);
+    public abstract boolean execute(CommandSender sender, String[] args);
 
     /**
      * Creates a command object instance
@@ -32,7 +32,7 @@ public abstract class Command {
     }
 
     /**
-     *
+     * Registers a command in the registry
      */
     public static void registerCommand(String cmdLabel, Class clazz) {
         if(clazz.equals(Command.class)) {
