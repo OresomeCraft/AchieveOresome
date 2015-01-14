@@ -1,10 +1,13 @@
 package com.oresomecraft.AchieveOresome;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.swing.plaf.synth.Region;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -129,6 +132,27 @@ public abstract class Achievement {
 
     //Complete the achievement - sets this achievement to completed for the specified player; gives reward.
     public void awardTo(UUID playerID) {
+        Player p = Bukkit.getPlayer(playerID);
+        ItemStack[] rewards = new ItemStack[3];
+        Random rand = new Random();
+        Boolean gotRare = false;
+        for (int i = 0; i < 3; i++) {
+            int val = rand.nextInt(100) + 1;
+            if (val < 10) {
+                gotRare = true;
+                Random r = new Random();
+                rewards[i] = rareRewards.get(r.nextInt());
+            } else {
 
+            }
+        }
+
+        // Messages
+        p.sendMessage(">>> AchieveOresome <<<");
+        p.sendMessage("Congratulations, you completed: " + this.name);
+        p.sendMessage(this.description);
+        p.sendMessage(this.completionText);
+        p.sendMessage("You received $" + this.rewardAmount);
+        p.sendMessage("You also received the following rewards:");
     }
 }
